@@ -9,14 +9,8 @@
 html{
     font-size: 62.5%;
     box-sizing: border-box;
-    scroll-snap-type: y mandatory;
 }
-.servicios,
-.nav-principal,
-.formulario{
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-}
+
 *, *:before, *:after {
     box-sizing: inherit;
   }
@@ -34,7 +28,7 @@ h2{
 h3{
     font-size: 1.8rem;
 }
-h1,h2,h3{
+h2,h3{
     text-align: center;
 }
 
@@ -53,7 +47,6 @@ h1,h2,h3{
 
 }
 .titulo{
-    text-align: center;
     font-size: 3.8rem;
 }
 .titulo span{
@@ -73,6 +66,69 @@ h1,h2,h3{
     box-shadow: 0px 5px 15px 0px rgba(158,158,158,0.5);
     background-color: var(--blanco);
     border-radius: 1rem;
+}
+.nav{
+    border-bottom: 0.1rem solid var(--secundario);
+}
+.nav-toggle{
+    position: absolute;
+    cursor: pointer;
+    margin: 0 1rem;
+    right: 0;
+}
+.nav-toggle .menu,
+.nav-toggle .close {
+    margin-top: 3.5rem;
+}
+.nav-toggle .close{
+    display: none;
+}
+.nav-checkbox{
+    display: none;
+}
+.nav-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    margin: 1rem;
+}
+.nav-menu a{
+    text-decoration: none;
+    color: var(--secundario);
+}
+.nav-menu a:hover{
+    color: var(--oscuro);
+}
+.nav-menu li {
+    list-style-type: none;
+    display: none;
+    font-weight: 600;
+}
+
+.nav-menu li:first-child{
+    margin-right: auto;
+    display: block;
+}
+#nav-checkbox:checked ~ ul.nav-menu li{
+    display: block;
+}
+#nav-checkbox:checked ~ label.nav-toggle .close{
+    display: block;
+}
+#nav-checkbox:checked ~ label.nav-toggle .menu{
+    display: none;
+}
+@media (min-width: 768px) {
+    .nav-toggle{
+        display: none;
+    }
+    .nav-menu{
+        flex-direction: row;
+    }
+    .nav-menu li{
+        display: block;
+    }
 }
 .bg-nav{
     background-color: var(--secundario);
