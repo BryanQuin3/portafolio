@@ -31,7 +31,10 @@ h3{
 h2,h3{
     text-align: center;
 }
-
+ul{
+    padding-inline-start: 0rem;
+}
+/*boton*/
 .boton{
     background-color: var(--secundario);
     color: var(--blanco);
@@ -52,6 +55,7 @@ h2,h3{
 .titulo span{
     font-size: 2rem;
 }
+/*contenedor principal*/
 .contenedor{
     max-width: 100rem;
     margin: 0 auto;
@@ -67,18 +71,16 @@ h2,h3{
     background-color: var(--blanco);
     border-radius: 1rem;
 }
+/*navegacion*/
 .nav{
     border-bottom: 0.1rem solid var(--secundario);
 }
 .nav-toggle{
     position: absolute;
     cursor: pointer;
-    margin: 0 1rem;
-    right: 0;
-}
-.nav-toggle .menu,
-.nav-toggle .close {
     margin-top: 3.5rem;
+    right: 0;  
+    padding-right: 1rem;
 }
 .nav-toggle .close{
     display: none;
@@ -108,17 +110,41 @@ h2,h3{
 
 .nav-menu li:first-child{
     margin-right: auto;
+    padding-right: 5rem;
     display: block;
 }
 #nav-checkbox:checked ~ ul.nav-menu li{
     display: block;
+    
 }
+/*agrega animacion a al menu*/
+#nav-checkbox:checked ~ ul.nav-menu
+li:nth-child(2),
+li:nth-child(3),
+li:nth-child(4),
+li:nth-child(5){
+    animation: smallbig 0.6s forwards;
+}
+/*agrega animacion al icono del menu*/
 #nav-checkbox:checked ~ label.nav-toggle .close{
+    animation: smallbig 0.6s forwards;
     display: block;
+    
 }
 #nav-checkbox:checked ~ label.nav-toggle .menu{
     display: none;
 }
+/*animacion*/
+  @keyframes smallbig{
+    0%{
+      -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+      -o-transform: scale(0);
+      transform: scale(0);
+    }
+  }
+ 
+/*responsive menu*/
 @media (min-width: 768px) {
     .nav-toggle{
         display: none;
@@ -128,28 +154,16 @@ h2,h3{
     }
     .nav-menu li{
         display: block;
-        padding-right: 6rem;
+        animation: none;
+        padding-right: 4rem;
+    }
+    .nav-menu li:nth-child(1){
+        display: block;
+        animation: none;
+        padding-left: 4rem;
     }
 }
-.bg-nav{
-    background-color: var(--secundario);
-}
-.nav-principal{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-}
-.nav-principal a{
-    color: var(--blanco);
-    text-decoration: none;
-    padding: 1rem;
-    font-weight: bold;
-}
-.nav-principal a:hover{
-    color: var(--oscuro);
-    background-color: var(--primario);
-}
+/*hero*/
 .hero{
     background-image: url(./img/hero.png);
     background-repeat: no-repeat;
@@ -171,7 +185,7 @@ h2,h3{
 .hero-contenido h2,p{
     color: var(--blanco);
 }
-
+/*responsive hero*/
 @media (min-width: 768px) {
     .nav-principal{
         flex-direction: row;
@@ -231,6 +245,7 @@ h2,h3{
     color: var(--blanco);
     font-weight: bold;
 }
+/*responsive form*/
 @media (min-width: 768px) {
     .contenedor-campos{
         display: grid;
@@ -262,6 +277,7 @@ h2,h3{
 .enviar .boton{
     width: 100%;
 }
+/*responsive boton*/
 @media (min-width: 768px) {
     .enviar .boton{
         width: auto;
